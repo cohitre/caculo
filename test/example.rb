@@ -1,10 +1,15 @@
-require File.dirname(__FILE__) + '/../lib/caculo'
-require File.dirname(__FILE__) + '/../server/server'
-
-include Caculo
+require "rubygems"
+require "caculo"
 
 page = Caculo::Browser.open(:safari)
 page.visit( "http://www.google.com" )
-sleep 0.2
-page[ jQuery( "input[name=q]" ).val("cohitre") ]
-page[ jQuery( "form[name=f]" ).submit ]
+page.search("input[name=q]") { |obj| obj.val("cohitre") }
+page.search("form[name=f]") { |form| form.submit }
+sleep(1)
+page.load_libraries!
+sleep(1)
+puts page.search("ol li:first a:first"){|f| f.text }
+puts page.search("ol li:first a:first"){|f| f.attr("href") }
+
+
+
