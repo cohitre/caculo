@@ -14,7 +14,6 @@ Caculo is inspired by the Watir/FireWatir/SafariWatir trio, However, by simplify
 
 I haven't really tested Caculo outside of my computer, so things may not work as expected out of the box. 
 
-
 == The Descriptive Example:
 
    browser = Caculo.open :safari
